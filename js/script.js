@@ -49,7 +49,7 @@ class Ball {
     this.dy = Math.random() < 0.5 ? -1 : 1;
     this.radius = generateRandomNumber(5, 15);
     this.color = generateRandomColor();
-    this.mass = this.radius;
+    this.mass = (this.radius/15);
   }
 
   /**
@@ -170,7 +170,7 @@ let isColliding = (ball) => {
     var distance = Math.sqrt(dx * dx + dy * dy);
 
     if (distance < ball.radius + ballList[eachBallFromBallList].radius) {
-      
+
       return true;
     }
   }
