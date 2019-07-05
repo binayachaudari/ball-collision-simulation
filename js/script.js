@@ -1,7 +1,8 @@
-const SPEED = 2;
-const NUM_OF_BALLS = 50;
+const SPEED = 1;
+const NUM_OF_BALLS = 100;
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 800;
+const CANVAS_OFFSET = 50;
 
 let canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
@@ -49,7 +50,7 @@ class Ball {
     this.dy = Math.random() < 0.5 ? -1 : 1;
     this.radius = generateRandomNumber(5, 15);
     this.color = generateRandomColor();
-    this.mass = (this.radius/15);
+    this.mass = 1;
   }
 
   /**
@@ -201,7 +202,8 @@ let init = () => {
   for (var ballNumber = 0; ballNumber < NUM_OF_BALLS; ballNumber++) {
 
     do {
-      var ball = new Ball(generateRandomNumber(50, CANVAS_WIDTH - 50), generateRandomNumber(50, CANVAS_WIDTH - 50));
+      var ball = new Ball(generateRandomNumber(50, CANVAS_WIDTH - CANVAS_OFFSET),
+      generateRandomNumber(50, CANVAS_HEIGHT - CANVAS_OFFSET));
     } while (isColliding(ball));
 
     ballList.push(ball);
